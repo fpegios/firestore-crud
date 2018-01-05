@@ -2,12 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>index.html</title>
+    <title>Firestore CRUD</title>
+    
     <link href="dist/css/main.min.css" rel="stylesheet"/>    
 </head>
 <body>
-    <h1>Hello World!</h1>
+    <h1 id="fullname"></h1>
     
+    <input type="text" id="firstname" placeholder="first name"/>
+    <input type="text" id="lastname" placeholder="last name"/>
+    <button id="add">ADD</button>
+    <button id="load">LOAD</button>
+    <hr>
+    <div id="userlist"></div>
+    
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>  
     <script src="dist/js/main.min.js"></script>
 </body>
 </html>
