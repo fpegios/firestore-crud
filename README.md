@@ -1,6 +1,6 @@
 #  Firestore CRUD application
 
-Simple app that creates, reads, updates and deletes firestore documents.
+Web app that handles firestore documents and support all the CRUD operations.
 
 ## Prerequisites
   - NodeJS
