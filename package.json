@@ -1,0 +1,28 @@
+{
+  "name": "firestore-crud",
+  "version": "1.0.0",
+  "description": "Simple app that creates, reads, updates and deletes firestore documents.",
+  "main": "app.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fpegios/firestore-crud.git"
+  },
+  "author": "fpegios",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.23.2",
+    "del": "^3.0.0",
+    "express": "^4.16.2",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-cli": "^2.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0"
+  }
+}
