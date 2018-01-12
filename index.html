@@ -7,7 +7,17 @@
     <link href="dist/css/main.min.css" rel="stylesheet"/>    
 </head>
 <body>
-   
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modal-name"></p>
+            <input type="text" id="new-firstname" placeholder="New first name"/>
+            <input type="text" id="new-lastname" placeholder="New last name"/>
+            <button id="delete-user">DELETE</button>
+            <button id="update">UPDATE</button>
+        </div>
+    </div>
+
     <input type="text" id="firstname" placeholder="first name"/>
     <input type="text" id="lastname" placeholder="last name"/>
     <button id="add">ADD</button>
