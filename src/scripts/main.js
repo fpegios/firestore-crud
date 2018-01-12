@@ -1,14 +1,3 @@
-var config = {
-    apiKey: "AIzaSyBPBsi5zfZCgY4muyswWAQC3wK7BNE6MCg",
-    authDomain: "realtime-database-exampl-f77f2.firebaseapp.com",
-    databaseURL: "https://realtime-database-exampl-f77f2.firebaseio.com",
-    projectId: "realtime-database-exampl-f77f2",
-    storageBucket: "realtime-database-exampl-f77f2.appspot.com",
-    messagingSenderId: "860473344145"
-};
-
-firebase.initializeApp(config);
-  
 var inputFirstname = document.querySelector("#firstname");
 var inputLastname = document.querySelector("#lastname");
 var addButton = document.querySelector("#add");
@@ -83,7 +72,7 @@ function readCollection(collection) {
     userlist.innerHTML = usersHTML;
     collection.get().then(function(querySnapshot) {
         if (querySnapshot.size != 0) {
-            console.log("Collection fetched!");
+            console.log("Collection successfully fetched!");
             querySnapshot.forEach(function(doc) {
                 usersHTML = usersHTML.concat("<p id=\"" + doc.id + "\" onclick=\"openModal(this)\">" + doc.data().firstName + " " + doc.data().lastName + "</p>");
             });
@@ -100,7 +89,7 @@ function readCollection(collection) {
 function createDocument(collection, document) {
     // Add a new document with a generated id.
     collection.add(document).then(function(doc) {
-        console.log("Document Created!");
+        console.log("Document successfully created!");
         newDocId = doc.id;
         usersHTML = usersHTML.concat("<p id=\"" + doc.id + "\">" + document.firstName + " " + document.lastName + "</p>");
         userlist.innerHTML = usersHTML;
