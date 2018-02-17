@@ -13,7 +13,7 @@ $ npm install -g gulp-cli
 $ npm install
 ```
 
-In root directory of the project create a file **firebase_config.js** with the following content and replace XXXX with your firebase project details:
+In the directory `src/scripts/` create a file **firebase_config.js** with the following content and replace XXXX with your firebase project details:
 ```
 var config = {
     apiKey: "XXXX",

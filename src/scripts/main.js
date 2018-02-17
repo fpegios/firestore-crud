@@ -29,11 +29,17 @@ readCollection(usersCollection);
 addButton.onclick = function() {
     inputs.firstName = inputFirstname.value;
     inputs.lastName = inputLastname.value;
-    createDocument(usersCollection, inputs);
+    if (inputs.firstName != "" && inputs.lastName) {
+        createDocument(usersCollection, inputs);
+    } else {
+        alert("You must complete First and Last Name.");
+    }
 };
 
 deleteButton.onclick = function() {
-    deleteCollection(usersCollection);
+    if (usersHTML != "") {
+        deleteCollection(usersCollection);
+    }
 };
 
 deleteUserButton.onclick = function() {
@@ -60,7 +66,7 @@ window.onclick = function(event) {
 
 function openModal(clickedUser) {
     clickedUserId = clickedUser.id;
-    modalName.innerHTML = clickedUser.innerHTML;
+    modalName.innerHTML = "User: " + clickedUser.innerHTML;
     newInputs.firstName = inputNewFirstname.value = "";
     newInputs.lastName = inputNewLastname.value = "";
     modal.style.display = "block";
@@ -71,6 +77,7 @@ function readCollection(collection) {
     usersHTML = "";
     userlist.innerHTML = usersHTML;
     collection.get().then(function(querySnapshot) {
+        $(".loading-users").hide();
         if (querySnapshot.size != 0) {
             console.log("Collection successfully fetched!");
             querySnapshot.forEach(function(doc) {
@@ -78,6 +85,7 @@ function readCollection(collection) {
             });
             userlist.innerHTML = usersHTML;
         } else {
+            $(".no-users").show();
             console.log("Empty collection!");
         }
     }).catch(function(error){
@@ -90,8 +98,9 @@ function createDocument(collection, document) {
     // Add a new document with a generated id.
     collection.add(document).then(function(doc) {
         console.log("Document successfully created!");
+        $(".no-users").hide();
         newDocId = doc.id;
-        usersHTML = usersHTML.concat("<p id=\"" + doc.id + "\">" + document.firstName + " " + document.lastName + "</p>");
+        usersHTML = usersHTML.concat("<p id=\"" + doc.id + "\" onclick=\"openModal(this)\">" + document.firstName + " " + document.lastName + "</p>");
         userlist.innerHTML = usersHTML;
     })
     .catch(function(error) {
@@ -119,6 +128,7 @@ function deleteCollection(collection) {
         // commit batch
         batch.commit().then(function() {
             console.log("Collection deleted!");
+            $(".no-users").show();
             userlist.innerHTML = "";
             usersHTML = "";
         });
@@ -143,6 +153,10 @@ function deleteDocument(collection, documentId) {
         console.log("Document successfully deleted!");
         document.getElementById(documentId).remove();
         modal.style.display = "none";
+        if ($( "#userlist" ).html() == "") {
+            usersHTML = "";
+            $(".no-users").show();
+        }
     }).catch(function(error) {
         console.error("Error removing document: ", error);
     });
