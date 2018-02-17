@@ -2,6 +2,8 @@
 
 Web app that handles firestore documents and supports all the CRUD operations.
 
+![alt text](https://fpegios.000webhostapp.com/fpegios/images/portfolio/firestore-crud.png)
+
 ## Prerequisites
   - NodeJS
 
