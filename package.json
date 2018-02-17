@@ -1,7 +1,7 @@
 {
   "name": "firestore-crud",
   "version": "1.0.0",
-  "description": "Web app that handles firestore documents and support all the CRUD operations",
+  "description": "Web app that handles firestore documents and supports all the CRUD operations",
   "main": "app.js",
   "scripts": {
     "test": "gulp"
